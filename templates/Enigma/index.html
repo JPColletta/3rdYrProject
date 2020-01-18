@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Enigma/Enigma.css' %}">
+    <script src="{% static 'Enigma/Enigma.js' %}"></script>
+    <meta charset="UTF-8">
+    <title>Enigma V0.1</title>
+</head>
+<body>
+<form action="" method="post" class="positioned">
+    {% csrf_token %}
+    {{ Form1.as_p }}
+    <input type="submit" value="OK" name="PresetSubmit">
+</form>
+
+<form action="" method="post" class="positioned">
+    {% csrf_token %}
+    {{ Form.as_p }}
+    <input type="submit" value="OK" name="EnigmaSubmit">
+</form>
+
+</body>
+</html>
