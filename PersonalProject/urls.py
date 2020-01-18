@@ -22,6 +22,7 @@ from django.views.generic import RedirectView
 
 urlpatterns = [
     path('enigma/', include('Enigma.urls')),
+    path('api/welcome', include('Enigma.urls')),
     path('', RedirectView.as_view(url='enigma/', permanent=True)),
 ]
 
