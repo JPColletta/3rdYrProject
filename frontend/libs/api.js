@@ -1,8 +1,9 @@
+import { config } from '../config/localconfig';
+
 export async function api({
   method = 'GET',
   endpoint,
   data,
-  usingAuthToken = true,
   rawBody = false,
 }) {
   const url = `${config.apiUrl}${endpoint}`;
@@ -14,13 +15,6 @@ export async function api({
 
   if (!rawBody) {
     params.headers['Content-Type'] = 'application/json';
-  }
-
-  if (usingAuthToken) {
-    const token = auth.getUserToken();
-    if (token) {
-      params.headers.Authorization = `Token ${token}`;
-    }
   }
 
   if (data) {
