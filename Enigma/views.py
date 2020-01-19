@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from Enigma import forms, enigma
 import Enigma.models as md
-import string
+import datetime
+
 
 def index(request):
     template = '/index.html'
@@ -21,3 +22,10 @@ def index(request):
         return render(request, template, {'Form': enigmaForm, 'form1': presetForm})
     else:
         return render(request, 'Enigma/index.html', {'Form': enigmaForm, 'Form1': presetForm})
+
+
+def welcome(request):
+    if request.method=='GET':
+        now = datetime.datetime.now()
+        message = "<html><body>Welcome to the jungle cunt! The time now is %s</body></html" % now
+        return HttpResponse(message)
