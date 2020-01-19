@@ -5,7 +5,6 @@ export default {
        return api(({
 	      method: 'GET',
 	      endpoint: `/welcome`,
-	      usingAuthToken: true,
 	    }).catch(error => {
 	      // Validation errors
 	      if (error.status === 400 || error.status === 404) {
